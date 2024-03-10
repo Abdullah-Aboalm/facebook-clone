@@ -979,19 +979,25 @@ a {
   position: relative;
 }
 
+.main .aside-right ul.contacts li .img.state {
+  outline: 2.5px solid #0866ff;
+  border: 2px solid black;
+}
+
 .main .aside-right ul.contacts li .img img {
   width: 100%;
   border-radius: 50%;
 }
 
-.main .aside-right ul.contacts li .img span {
+.main .aside-right ul.contacts li .img span,
+.main .content ul.posts span.online {
   width: 10px;
   height: 10px;
   background-color: rgb(31, 197, 31);
   border: 2px solid black;
   position: absolute;
-  right: 0;
-  bottom: 0;
+  right: -2px;
+  bottom: -1px;
   border-radius: 50%;
 }
 
@@ -1350,6 +1356,7 @@ a {
 .main .content .new-post .head button:hover {
   background-color: #545556;
 }
+
 .main .content .new-post .buttons {
   margin-top: 10px;
   display: flex;
@@ -1383,14 +1390,11 @@ a {
 
 /* posts */
 
-.main .content ul.posts {
-  
-}
-
 .main .content ul.posts li {
   margin: 20px 0;
   border-radius: 8px;
   background-color: #242526;
+  overflow: hidden;
 }
 
 .main .content ul.posts li .head {
@@ -1410,6 +1414,7 @@ a {
 
 .main .content ul.posts li .head .img img.group {
   width: 100%;
+  border-radius: 50%;
 }
 
 .main .content ul.posts li .head .img img.person {
@@ -1422,6 +1427,10 @@ a {
   border: 1px solid black;
 }
 
+.main .content ul.posts li .head .img img {
+  cursor: pointer;
+}
+
 .main .content ul.posts li .head .text {
   flex: 1;
   margin-left: 12px;
@@ -1432,11 +1441,19 @@ a {
   margin-bottom: -5px;
   font-weight: 500;
   font-size: 15px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.main .content ul.posts li .head .text p:hover,
+.main .content ul.posts li .head .text span:hover {
+  text-decoration: underline;
 }
 
 .main .content ul.posts li .head .text span {
   color: gray;
   font-size: 13px;
+  cursor: pointer;
 }
 
 .main .content ul.posts li .icons {
@@ -1468,22 +1485,28 @@ a {
 .main .content ul.posts li p.text {
   margin-bottom: 5px;
   padding: 0 15px;
+  color: white;
+  display: flex;
+  align-items: center;
 }
 
 .main .content ul.posts li p.text img {
   width: 20px;
 }
 
-.main .content ul.posts li .media {
-  
-}
-
 .main .content ul.posts li .media img {
   width: 100%;
+  cursor: pointer;
+}
+
+.main .content ul.posts li .media video {
+  width: 100%;
+  cursor: pointer;
+  transition: .3s;
 }
 
 .main .content ul.posts li .likes {
-  padding: 5px 15px;
+  padding: 2px 15px 5px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -1493,7 +1516,7 @@ a {
 
 .main .content ul.posts li .likes p {
   flex: 1;
-  color: gray;
+  color: rgb(170, 170, 170);
 }
 
 .main .content ul.posts li .likes p img {
@@ -1525,7 +1548,7 @@ a {
 }
 
 .main .content ul.posts li .likes span {
-  
+  vertical-align: middle;
 }
 
 .main .content ul.posts li .like-bar {
@@ -1533,6 +1556,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .main .content ul.posts li .like-bar .reaction {
@@ -1546,6 +1570,11 @@ a {
   font-size: 15px;
   transition: .3s;
   cursor: pointer;
+  position: relative;
+}
+
+.main .content ul.posts li .like-bar:hover .reactions-pop {
+  top: -50px;
 }
 
 .main .content ul.posts li .like-bar .reaction:hover {
@@ -1563,20 +1592,48 @@ a {
   filter: invert(80%);
 }
 
-.main .content ul.posts li .like-bar .reaction p {
-
+.main .content ul.posts li .like-bar .reactions-pop {
+  position: absolute;
+  left: 0;
+  top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  background-color: black;
+  border: 1px solid rgb(62, 62, 62);
+  border-radius: 25px;
+  z-index: 5;
+  transition: .5s .2s;
 }
 
-.main .content ul.posts li .like-bar .reaction .reactions-pop {
-  display: none;
+.main .content ul.posts li .like-bar .reactions-pop span {
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .3s;
+  cursor: pointer;
 }
 
-.main .content ul.posts li .like-bar .reaction .reaction-pop span {
-
+.main .content ul.posts li .like-bar .reactions-pop span:hover {
+  scale: 1.3;
 }
 
-.main .content ul.posts li .like-bar .reaction .reaction-pop span img {
+.main .content ul.posts li .like-bar .reactions-pop span:not(:last-child) {
+  margin-right: 11px;
+}
 
+.main .content ul.posts li .like-bar .reactions-pop span img {
+  width: 100%;
+}
+
+.main .content ul.posts li .like-bar .reactions-pop span:nth-child(3) {
+  scale: 1.3;
+}
+
+.main .content ul.posts li .like-bar .reactions-pop span:nth-child(3):hover {
+  scale: 1.8;
 }
 
 .main .content ul.posts li .like-bar button {
@@ -1601,6 +1658,46 @@ a {
 .main .content ul.posts li .like-bar button i {
   margin-right: 10px;
   filter: invert(80%);
+}
+
+.main .content ul.posts li img.animation {
+  animation: rotate .3s ease-in forwards;
+  width: 25px; 
+  margin-right: 5px;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(-20deg);
+    scale: 1.6;
+  }
+  
+  100% {
+    transform: rotate(0deg);
+    scale: 1;
+  }
+}
+
+.main .content ul.posts .postsOver {
+  color: gray;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.main .content ul.posts .postsOver p {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.main .content ul.posts .postsOver svg {
+  font-size: 100px;
+}
+
+.main .content ul.posts span.online {
+  width: 15px;
+  height: 15px;
+  bottom: -2px;
+  right: -2px;
 }
 
 /* end main */

@@ -70,6 +70,12 @@ ulProfile.forEach((li) => {
       allStoriesNext.style.zIndex = "1";
       menuPopup.style.top = "-800px";
     }
+    if (li.classList.contains("active") && li.classList.contains("profile")) {
+      ulProfile.forEach((li) => li.classList.remove("active"));
+      li.classList.add("active");
+      // menu
+    } else {
+    }
   });
 });
 
@@ -346,6 +352,125 @@ messengerUlLis.forEach((li) => {
     lispan.remove();
     lih5.style.color = "gray";
     lip.style.color = "gray";
+  });
+});
+
+// comments counter
+
+let ulPostsLis = document.querySelectorAll("ul.posts li");
+
+ulPostsLis.forEach((li) => {
+  let commentBtn = li.querySelector("button.comments");
+  let commentsCont = li.querySelector("button.comments-cont");
+  commentBtn.addEventListener("click", () => {
+    commentsCont.style.display = "block";
+    let counter = commentsCont.querySelector("span");
+    let convert = counter.innerHTML;
+    counter.innerHTML = +(++convert);
+  });
+});
+
+// shares counter
+
+ulPostsLis.forEach((li) => {
+  let shares = li.querySelector("button.shares");
+  let sharesCont = li.querySelector("button.shares-cont");
+  shares.addEventListener("click", () => {
+    sharesCont.style.display = "block";
+    let counter = sharesCont.querySelector("span");
+    let convert = counter.innerHTML;
+    counter.innerHTML = +(++convert);
+  });
+});
+
+// reactions
+
+ulPostsLis.forEach((li) => {
+  let reaction = li.querySelector("label.reaction");
+  let reactions = li.querySelectorAll(".reactions-pop span");
+  let likesP = li.querySelector(".likes p");
+  let likesImg = li.querySelector(".likes img");
+  let i = li.querySelector(".reaction i");
+  let reactionName = li.querySelector(".reaction-name");
+  let img = document.createElement("img");
+  img.className = "animation";
+  likesP.style.display = "none";
+
+  reactions.forEach((span) => {
+    span.addEventListener("click", () => {
+      likesP.style.display = "block";
+      reaction.classList.add("active");
+      i.style.display = "none";
+      if (span.classList.contains("love")) {
+        reactionName.style.color = "red";
+        img.src = "./assets/imgs/reaction/reactions_love.png";
+        likesImg.src = "./assets/imgs/reaction/reactions_love.png";
+        reactionName.innerHTML = "Love";
+      } else if (span.classList.contains("care")) {
+        reactionName.style.color = "#f1cc24";
+        img.src = "./assets/imgs/reaction/care.png";
+        likesImg.src = "./assets/imgs/reaction/care.png";
+        reactionName.innerHTML = "Care";
+      } else if (span.classList.contains("laugh")) {
+        reactionName.style.color = "#f4c314";
+        reactionName.innerHTML = "Laugh";
+        img.src = "./assets/imgs/reaction/Laughing Emoji.png";
+        likesImg.src = "./assets/imgs/reaction/Laughing Emoji.png";
+      } else if (span.classList.contains("wow")) {
+        reactionName.style.color = "#f4e914";
+        reactionName.innerHTML = "WoW";
+        img.src = "./assets/imgs/reaction/reactions_wow.png";
+        likesImg.src = "./assets/imgs/reaction/reactions_wow.png";
+      } else if (span.classList.contains("sad")) {
+        reactionName.style.color = "#f4e914";
+        img.src = "./assets/imgs/reaction/reactions_sad.png";
+        likesImg.src = "./assets/imgs/reaction/reactions_sad.png";
+        reactionName.innerHTML = "Sad";
+      } else if (span.classList.contains("angry")) {
+        reactionName.style.color = "#f49714";
+        img.src = "./assets/imgs/reaction/reactions_Angry.png";
+        likesImg.src = "./assets/imgs/reaction/reactions_Angry.png";
+        reactionName.innerHTML = "Angry";
+      } else {
+        reactionName.style.color = "#1c6df0";
+        img.src = "./assets/imgs/reaction/reactions_like.png";
+        likesImg.src = "./assets/imgs/reaction/reactions_like.png";
+        reactionName.innerHTML = "Like";
+      }
+      reaction.prepend(img);
+    });
+  });
+
+  reaction.addEventListener("click", () => {
+    if (reaction.classList.contains("active")) {
+      reaction.classList.remove("active");
+      i.style.display = "block";
+      img.remove();
+      reactionName.innerHTML = "Like";
+      reactionName.style.color = "white";
+      likesP.style.display = "none";
+    } else {
+      reaction.classList.add("active");
+      reactionName.style.color = "#1c6df0";
+      reactionName.innerHTML = "Like";
+      i.style.display = "none";
+      img.style.display = "block";
+      img.src = "./assets/imgs/reaction/reactions_like.png";
+      reaction.prepend(img);
+      likesP.style.display = "block";
+      likesImg.src = "./assets/imgs/reaction/reactions_like.png";
+    }
+  });
+});
+
+let ulPostsHeads = document.querySelectorAll("ul.posts .head");
+
+ulPostsLis.forEach((li) => {
+  let Close = li.querySelectorAll(".icons .icon.close");
+  Close.forEach((icon) => {
+    icon.addEventListener("click", () => {
+      li.remove();
+    });
   });
 });
 
