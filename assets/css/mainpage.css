@@ -206,7 +206,7 @@ a {
   justify-content: flex-end;
 }
 
-.nav ul.profile li {
+.nav ul.profile li.main {
   width: 45px;
   height: 100%;
   background-color: #3a3b3c;
@@ -218,24 +218,24 @@ a {
   transition: .3s;
 }
 
-.nav ul.profile li:hover {
+.nav ul.profile li.main:hover {
   background-color: rgba(176, 176, 176, 0.412);
 }
 
-.nav ul.profile li:not(:last-child) {
+.nav ul.profile li.main:not(:last-child) {
   margin-right: 15px;
 }
 
-.nav ul.profile li svg {
+.nav ul.profile li.main svg {
   font-size: 18px;
   color: white;
 }
 
-.nav ul.profile li.active {
+.nav ul.profile li.main.active {
   background-color: #0867ff54;
 }
 
-.nav ul.profile li.active svg {
+.nav ul.profile li.main.active svg {
   color: #0866ff;
 }
 
@@ -1741,11 +1741,11 @@ a {
   .nav ul.profile li svg {
     font-size: 15px;
   }
+  .nav ul.profile .notif-popup,
+  .nav ul.profile .messenger-popup {
+    width: 200%;
+  }
+  .nav ul.profile .menu-popup {
+    width: 250%;
+  }
 }
-
-/* large laptop */
-@media screen and (min-width: 1440px) and (max-width: 2559px) {}
-
-/* 4K */
-
-@media screen and (min-width: 2560px) {}

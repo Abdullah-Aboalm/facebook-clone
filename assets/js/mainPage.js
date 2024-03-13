@@ -70,12 +70,6 @@ ulProfile.forEach((li) => {
       allStoriesNext.style.zIndex = "1";
       menuPopup.style.top = "-800px";
     }
-    if (li.classList.contains("active") && li.classList.contains("profile")) {
-      ulProfile.forEach((li) => li.classList.remove("active"));
-      li.classList.add("active");
-      // menu
-    } else {
-    }
   });
 });
 
@@ -298,10 +292,12 @@ liSeeMore.addEventListener("click", () => {
   }
 });
 
-let copyRight = document.querySelector("#copyRight");
+let copyRight = document.querySelectorAll("#copyRight");
 let date = new Date();
 
-copyRight.innerHTML = `Meta © ${date.getFullYear()}`;
+copyRight.forEach((copyRight) => {
+  copyRight.innerHTML = `Meta © ${date.getFullYear()}`;
+});
 
 // stories
 
@@ -475,3 +471,19 @@ ulPostsLis.forEach((li) => {
 });
 
 // end main page
+
+function myFunction(x) {
+  if (x.matches) {
+  }
+}
+
+// Create a MediaQueryList object
+var x = window.matchMedia("(min-width: 1024px) and (max-width: 1439px)");
+
+// Call listener function at run time
+myFunction(x);
+
+// Attach listener function on state changes
+x.addEventListener("change", function () {
+  myFunction(x);
+});
