@@ -40,6 +40,7 @@ let notifPop = document.querySelector(".notif-popup");
 let messengerPop = document.querySelector(".messenger-popup");
 let menuPopup = document.querySelector(".menu-popup");
 let allStoriesNext = document.querySelector(".pre-next .next");
+let profilePopup = document.querySelector(".profile-popup");
 
 ulProfile.forEach((li) => {
   li.addEventListener("click", () => {
@@ -70,7 +71,23 @@ ulProfile.forEach((li) => {
       allStoriesNext.style.zIndex = "1";
       menuPopup.style.top = "-800px";
     }
+    if (li.classList.contains("active") && li.classList.contains("profile")) {
+      ulProfile.forEach((li) => li.classList.remove("active"));
+      li.classList.add("active");
+      // menu
+      profilePopup.style.top = "55px";
+    } else {
+      profilePopup.style.top = "-800px";
+    }
   });
+});
+
+// log out
+
+let liLogout = document.querySelector(".logOut");
+
+liLogout.addEventListener("click", () => {
+  location.replace("indexEn.html");
 });
 
 // input focus logo
@@ -472,18 +489,18 @@ ulPostsLis.forEach((li) => {
 
 // end main page
 
-function myFunction(x) {
-  if (x.matches) {
-  }
-}
+// function myFunction(x) {
+//   if (x.matches) {
+//   }
+// }
 
 // Create a MediaQueryList object
-var x = window.matchMedia("(min-width: 1024px) and (max-width: 1439px)");
+// var x = window.matchMedia("(min-width: 1024px) and (max-width: 1439px)");
 
 // Call listener function at run time
-myFunction(x);
+// myFunction(x);
 
 // Attach listener function on state changes
-x.addEventListener("change", function () {
-  myFunction(x);
-});
+// x.addEventListener("change", function () {
+//   myFunction(x);
+// });

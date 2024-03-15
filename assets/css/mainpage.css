@@ -410,7 +410,8 @@ a {
 
 .nav ul.profile .notif-popup,
 .nav ul.profile .messenger-popup,
-.nav ul.profile .menu-popup { 
+.nav ul.profile .menu-popup,
+.nav ul.profile .profile-popup { 
   position: absolute;
   top: -550px;
   width: 110%;
@@ -426,7 +427,8 @@ a {
 
 .nav .notif-popup::-webkit-scrollbar,
 .nav ul.profile .messenger-popup::-webkit-scrollbar,
-.nav ul.profile .menu-popup::-webkit-scrollbar {
+.nav ul.profile .menu-popup::-webkit-scrollbar,
+.nav ul.profile .profile-popup::-webkit-scrollbar {
   appearance: none;
   width: 10px;
   visibility: hidden;
@@ -434,13 +436,15 @@ a {
 
 .nav .notif-popup::-webkit-scrollbar-track,
 .nav ul.profile .messenger-popup::-webkit-scrollbar-track,
-.nav ul.profile .menu-popup::-webkit-scrollbar-track {
+.nav ul.profile .menu-popup::-webkit-scrollbar-track,
+.nav ul.profile .profile-popup::-webkit-scrollbar-track {
   border-radius: 20px;
 }
 
 .nav .notif-popup::-webkit-scrollbar-thumb,
 .nav ul.profile .messenger-popup::-webkit-scrollbar-thumb,
-.nav ul.profile .menu-popup::-webkit-scrollbar-thumb {
+.nav ul.profile .menu-popup::-webkit-scrollbar-thumb,
+.nav ul.profile .profile-popup::-webkit-scrollbar-thumb {
   background-color: rgba(128, 128, 128, 0.593);
   border-radius: 20px;
   visibility: hidden;
@@ -448,7 +452,8 @@ a {
 
 .nav .notif-popup:hover::-webkit-scrollbar-thumb,
 .nav ul.profile .messenger-popup:hover::-webkit-scrollbar-thumb,
-.nav ul.profile .menu-popup:hover::-webkit-scrollbar-thumb {
+.nav ul.profile .menu-popup:hover::-webkit-scrollbar-thumb,
+.nav ul.profile .profile-popup:hover::-webkit-scrollbar-thumb {
   visibility: visible;
 }
 
@@ -473,14 +478,16 @@ a {
 
 .nav ul.profile .notif-popup:hover::-webkit-scrollbar,
 .nav ul.profile .messenger-popup:hover::-webkit-scrollbar,
-.nav ul.profile .menu-popup.aside-left:hover::-webkit-scrollbar {
+.nav ul.profile .menu-popup.aside-left:hover::-webkit-scrollbar
+.nav ul.profile .profile-popup:hover::-webkit-scrollbar {
   visibility: visible;
 }
 
 .nav ul.profile .notif-popup .head .icon,
 .main .notification-float .notification-float-head .icon,
 .nav ul.profile .messenger-popup .icon,
-.nav ul.profile .menu-popup .icon { 
+.nav ul.profile .menu-popup .icon,
+.nav ul.profile .profile-popup .icon { 
   width: 30px;
   height: 30px;
   background-color: transparent;
@@ -495,7 +502,8 @@ a {
 .nav ul.profile .notif-popup .head .icon:hover,
 .main .notification-float .notification-float-head .icon:hover,
 .nav ul.profile .messenger-popup .icon:hover,
-.nav ul.profile .menu-popup .icon:hover {
+.nav ul.profile .menu-popup .icon:hover,
+.nav ul.profile .profile-popup .icon:hover {
   background-color: rgba(128, 128, 128, 0.451);
 }
 
@@ -503,7 +511,8 @@ a {
 .main .notification-float .notification-float-head .icon svg,
 .nav ul.profile .messenger-popup .icon svg,
 .nav ul.profile .messenger-popup .icon i,
-.nav ul.profile .menu-popup .icon i { 
+.nav ul.profile .menu-popup .icon i,
+.nav ul.profile .profile-popup .icon i { 
   color: gray;
   font-size: 18px;
 }
@@ -572,14 +581,16 @@ a {
 .nav ul.profile .notif-popup ul.noti,
 .main .notification-float ul,
 .nav ul.profile .messenger-popup ul.persons,
-.nav ul.profile .menu-popup ul { 
+.nav ul.profile .menu-popup ul,
+.nav ul.profile .profile-popup ul { 
   width: 100%;
 }
 
 .nav ul.profile .notif-popup ul.noti li,
 .main .notification-float ul li,
 .nav ul.profile .messenger-popup ul.persons li,
-.nav ul.profile .menu-popup ul li { 
+.nav ul.profile .menu-popup ul li,
+.nav ul.profile .profile-popup ul li { 
   display: flex;
   align-items: center;
   padding: 6px;
@@ -592,7 +603,8 @@ a {
 .nav ul.profile .notif-popup ul.noti li:hover,
 .main .notification-float ul li:hover,
 .nav ul.profile .messenger-popup ul.persons li:hover,
-.nav ul.profile .menu-popup ul li:hover {
+.nav ul.profile .menu-popup ul li:hover,
+.nav ul.profile .profile-popup ul li:hover {
   background-color: rgba(128, 128, 128, 0.188);
 }
 
@@ -639,7 +651,8 @@ a {
 .nav ul.profile .notif-popup ul.noti .text h5,
 .main .notification-float ul li .text h5,
 .nav ul.profile .messenger-popup ul.persons .text h5,
-.nav ul.profile .menu-popup ul li .text h4 { 
+.nav ul.profile .menu-popup ul li .text h4,
+.nav ul.profile .profile-popup ul li h4 { 
   font-size: 16px;
   color: rgba(255, 255, 255, 0.856);
   font-weight: normal;
@@ -835,6 +848,75 @@ a {
 .nav ul.profile .menu-popup .create ul li h4 {
   color: white;
   font-weight: 400;
+}
+
+/* profile popup */
+
+.nav ul.profile .profile-popup ul:first-of-type {
+  flex-direction: column;
+  padding: 0 10px;
+}
+
+.nav ul.profile .profile-popup ul:first-of-type li:first-of-type {
+  padding: 10px;
+}
+
+.nav ul.profile .profile-popup ul:first-of-type li {
+  padding: 5px;
+}
+
+.nav ul.profile .profile-popup ul:first-of-type li img {
+  border-radius: 50%;
+  width: 40px;
+  margin-right: 10px;
+}
+
+.nav ul.profile .profile-popup ul:first-of-type hr {
+  border: 1px solid rgba(128, 128, 128, 0.251);
+  width: 90%;
+  margin: 10px auto;
+}
+
+.nav ul.profile .profile-popup ul:first-of-type p {
+  color: #0866ff;
+}
+
+.nav ul.profile .profile-popup ul i {
+  filter: invert(89%);
+}
+
+.nav ul.profile .profile-popup ul svg {
+  color: gray;
+  font-size: 30px;
+}
+
+.nav ul.profile .profile-popup .icon {
+  margin-right: 10px;
+  width: 35px;
+  height: 35px;
+  background-color: rgba(128, 128, 128, 0.451);
+}
+
+.nav ul.profile .profile-popup h4 {
+  font-size: 28px;
+  flex: 1;
+}
+
+.nav ul.profile .profile-popup ul li {
+  padding: 10px 5px;
+}
+
+.nav ul.profile .profile-popup ul .links p {
+  color: gray;
+}
+
+.nav ul.profile .profile-popup ul .links a {
+  color: gray;
+  font-size: 14px;
+}
+
+.nav ul.profile .profile-popup ul .links a:hover {
+  text-decoration: underline;
 }
 
 /* end nav */
